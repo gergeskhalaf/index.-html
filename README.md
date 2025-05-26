@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -29,6 +29,6 @@
   </style>
 </head>
 <body>
-  <div class="heart-message">I love you </div>
+  <div class="heart-message">I love you shimma </div>
 </body>
 </html>
