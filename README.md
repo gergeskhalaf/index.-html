@@ -29,6 +29,6 @@
   </style>
 </head>
 <body>
-  <div class="heart-message">I love you</div>
+  <div class="heart-message">I love you </div>
 </body>
 </html>
