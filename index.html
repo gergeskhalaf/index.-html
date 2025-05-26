@@ -7,6 +7,7 @@
     body {
       margin: 0;
       height: 100vh;
+      overflow: hidden;
       background: linear-gradient(to right, #ff9a9e, #fad0c4);
       display: flex;
       align-items: center;
@@ -15,6 +16,8 @@
     }
 
     .heart-message {
+      position: relative;
+      z-index: 1;
       text-align: center;
       font-size: 3em;
       color: white;
@@ -26,9 +29,71 @@
       from { opacity: 0; transform: scale(0.9); }
       to { opacity: 1; transform: scale(1); }
     }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s infinite ease-in;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -10%;
+        opacity: 0;
+        transform: translateX(0) scale(1) rotate(45deg);
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 110%;
+        transform: translateX(-50px) scale(1.2) rotate(45deg);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="heart-message">I love you shimma </div>
+
+  <!-- قلوب متكررة -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
 </body>
 </html>
